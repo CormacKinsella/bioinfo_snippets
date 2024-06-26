@@ -1,0 +1,11 @@
+# Quarto preview function for .bashrc files
+
+qp () {
+	if [[ -z $1 ]]; then
+		echo "No qmd file was provided. Run 'qp <file>.qmd' to preview the file."
+	elif [[ $1 != *.qmd ]]; then
+		echo "The input file doesn't look like a qmd."
+	else
+		command quarto preview $1 --no-browser
+	fi
+}
